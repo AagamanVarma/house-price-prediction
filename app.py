@@ -16,6 +16,10 @@ uploaded_file = st.sidebar.file_uploader("Upload your housing dataset (CSV)", ty
 if uploaded_file:
     # Load the dataset
     house_price = pd.read_csv(uploaded_file, sep=',', header=None)
+    st.write("Dataset loaded successfully!")
+    st.write(house_price.head())  # Show the first few rows for debugging
+    st.write(f"Number of columns: {house_price.shape[1]}")  # Verify column count
+
     house_price.columns = [
         'CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM',
         'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B',
